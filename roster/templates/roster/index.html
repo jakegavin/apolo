@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<h1>Rosters</h1>
+{% for team in teams %}
+    <h2>{{ team.name }}</h2>
+    <p><strong>Coaches: 
+    {% for coach in coaches %}
+        {% if team in coach.team.all %}
+            {{ coach }},  
+        {% endif %}
+    {% endfor %}
+    </p></strong>
+    <table border="1">
+        <tr>
+            <th>Num</th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Grad Year</th>
+        </tr>
+        {% for player in players %}
+        {% if player.team == team %}
+        {% if player.active %}
+                <tr>
+                    <td>{{ player.number }}</td>
+                    <td>{{ player }}</td>
+                    <td>{{ player.position }}</td>
+                    <td>{{ player.grad_year }}</td>
+                </tr>    
+        {% endif %}
+        {% endif %}    
+        {% endfor %}
+    <table>
+    <br /><br />
+{% endfor %}
+{% endblock %}

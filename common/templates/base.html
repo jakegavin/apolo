@@ -1,0 +1,58 @@
+{% load staticfiles %}
+{% load common_tags %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ashland Water Polo</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Ashland Water Polo</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+<!--            <li class="{% active_page request 'home' %}"><a href="./">Home</a></li> -->
+            <li class="{% active_page request 'roster' %}"><a href="/roster/">Roster</a></li>
+            <li class="{% active_page request 'coaching_staff' %}"><a href="/coaching_staff/">Coaches</a></li>
+            <li class="{% active_page request 'schedule' %}"><a href="/schedule/">Schedule/Results</a></li>
+            <li class="{% active_page request 'photos' %}"><a href="/photos/">Photos</a></li>
+            <li class="{% active_page request 'resources' %}"><a href="/resources/">Resources</a></li>            
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </div><!-- /.navbar -->
+
+    <div class="container">
+        <div class="trans_overlay">
+        {% block content %}{% endblock %}
+            <hr>
+            <footer>
+                <p>Developed by <a href="http://jakegavin.net">Jake Gavin</a>  &sdot;  Based on <a href="http://getbootstrap.com">Bootstrap</a>
+                  &sdot;  Images by Alex Georgivitch</p>
+            </footer>
+        </div>
+    </div><!--/.container-->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/offcanvas.js' %}"></script>
+  </body>
+</html>
