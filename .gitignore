@@ -2,5 +2,9 @@
 *.pot
 *.pyc
 db.sqlite3
+<<<<<<< HEAD
 local_settings
 
+=======
+local_settings.py
+>>>>>>> c0b5fd5e9837d2428c705d22d9ad99ea53517bcf
