@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'common',
     'roster',
+    'photos',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -91,3 +92,7 @@ STATIC_URL = '/static/'
 
 # JG - Created common and removed this line (?)
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'), '/static/')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'public')
+
+MEDIA_URL = '/media/'
