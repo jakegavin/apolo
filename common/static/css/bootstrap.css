@@ -106,6 +106,10 @@ mark {
   background: #ff0;
 }
 
+.Group {
+    margin: 4px;
+}
+
 code,
 kbd,
 pre,
