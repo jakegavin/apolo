@@ -15,7 +15,8 @@ The photo app is loosely based on the Portfolio app in [Djago by Example]
 *   Create schedule app
 *   Create resources app
     *   Password protect page
-*   Create coaches app
+*   Clean up coaches page formatting. 
+    *   Use divs instead of tables
 *   Clean up admin pannel 
     *   Image thumbnails
 *   Fix trailing comma on coaches roster list
