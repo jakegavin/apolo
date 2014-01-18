@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ashland Water Polo</title>
+    <title>{% block title %}Ashland Water Polo{% endblock %}</title>
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <!-- Lightbox2 CSS -->
@@ -30,7 +30,7 @@
           <ul class="nav navbar-nav">
 <!--            <li class="{% active_page request 'home' %}"><a href="./">Home</a></li> -->
             <li class="{% active_page request 'roster' %}"><a href="/roster/">Roster</a></li>
-            <li class="{% active_page request 'coaching_staff' %}"><a href="/coaching_staff/">Coaches</a></li>
+            <li class="{% active_page request 'coaches' %}"><a href="/coaches/">Coaches</a></li>
             <li class="{% active_page request 'schedule' %}"><a href="/schedule/">Schedule/Results</a></li>
             <li class="{% active_page request 'photos' %}"><a href="/photos/">Photos</a></li>
             <li class="{% active_page request 'resources' %}"><a href="/resources/">Resources</a></li>            
