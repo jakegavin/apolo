@@ -1664,10 +1664,13 @@ pre code {
 }
 
 table {
-  width: 60%;
-  max-width: 100%;
   background-color: transparent;
   border-color: #eeeeee;
+}
+
+table .roster{
+  width: 60%;
+  max-width: 100%;
 }
 
 td, th {

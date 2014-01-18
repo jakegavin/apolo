@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Team(models.Model):
     name = models.CharField(max_length=30)
 
@@ -10,11 +9,14 @@ class Team(models.Model):
 class Coach(models.Model):
     first_name = models.CharField(max_length=35)
     last_name = models.CharField(max_length=35)
+    photo = models.ImageField(upload_to='images/coaches/', null=True)
+    # Photo url can be retrived with Coach.photo.url
+    title = models.CharField(max_length=70, blank=True)
     email = models.CharField(max_length=200, blank=True)
-    phone = models.CharField(max_length=12, blank=True)
-    start_year = models.IntegerField(max_length=4, blank=True)
     team = models.ManyToManyField(Team)
-
+    bio = models.TextField(blank=True)
+    active = models.BooleanField(default=True)
+    
     def __unicode__(self):
         return self.first_name + ' ' + self.last_name 
 
@@ -30,4 +32,3 @@ class Player(models.Model):
    
     def __unicode__(self):
         return self.first_name + ' ' + self.last_name
-

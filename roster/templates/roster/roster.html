@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %}Roster | Ashland Water Polo{% endblock %}
+
 {% block content %}
 <h1>Rosters</h1>
 {% for team in teams %}
@@ -11,7 +13,7 @@
         {% endif %}
     {% endfor %}
     </p></strong>
-    <table border="1">
+    <table border="1" class="roster">
         <tr>
             <th>Num</th>
             <th>Name</th>
