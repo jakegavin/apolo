@@ -27,4 +27,4 @@ The photo app is loosely based on the Portfolio app in [Djago by Example]
     *   Move conditional constructs into views.py
 *   Create Alumni App
 *   Clean up CSS
-
+*   Install South for database migrations
