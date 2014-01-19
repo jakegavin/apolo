@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic import TemplateView
-from common.views import CoachView, ScheduleView, PhotoView, ResourceView
+from common.views import CoachView, PhotoView, ResourceView
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -13,11 +13,11 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'apolo.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-#    url(r'^$', include('roster.urls')),
+    url(r'^$', include('roster.urls.rosterurls')),
     url(r'^roster/', include('roster.urls.rosterurls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^coaches/', include('roster.urls.coachesurls')),
-    url(r'^schedule/', ScheduleView.as_view(), name='schedule'),
+    url(r'^schedule/', include('schedule.urls')),
     url(r'^photos/', include('photos.urls')),
     url(r'^resources/', ResourceView.as_view(), name='resources'),
     url(r'^coaching_staff/', CoachView.as_view(), name='coaching_staff'),

@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'common',
     'roster',
     'photos',
+    'schedule',
 )
 
 MIDDLEWARE_CLASSES = (

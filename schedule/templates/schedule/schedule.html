@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Schedule | Ashland Water Polo{% endblock %}
+
+{% block content %}
+{% for season in seasons %}
+    <h2>{{ season }}</h3>
+    {% for tournament in tournaments %}
+        {% if tournament.season == season %}
+        <div class="panel-group" id="accordion">
+            <div class="panel-default">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.counter }}">
+                        {{ tournament.date_start }} - {{ tournament.date_end }}: {{ tournament.name }} in {{ tournament.location }}      
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse">
+                <div class="panel-body">
+                    {% for game in games %}
+                        <ul>
+                        {%if game.tournament == tournament %}
+                                <li> {{ game.time }} - Ashland {{ game.team}} vs {{ game.opponent }}  </li>
+                        {% endif %}                  
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <br>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+{% endblock %}
