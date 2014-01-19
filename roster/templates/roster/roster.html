@@ -12,6 +12,7 @@
             {{ coach }},  
         {% endif %}
     {% endfor %}
+    {% if team.players %}
     </p></strong>
     <table border="1" class="roster">
         <tr>
@@ -28,10 +29,13 @@
                     <td>{{ player }}</td>
                     <td>{{ player.position }}</td>
                     <td>{{ player.grad_year }}</td>
-                </tr>    
+                </tr>            
         {% endif %}
         {% endif %}    
         {% endfor %}
+    {% else %}
+    <p style="color: red;"><i>Please add players to the team roster.</i></p>
+    {% endif %}
     <table>
     <br /><br />
 {% endfor %}

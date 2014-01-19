@@ -1,7 +1,7 @@
 from django.db import models
 
 class Team(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField('Team name (i.e. "Boys" or "Girls")', max_length=30)
 
     def __unicode__(self):
         return self.name
