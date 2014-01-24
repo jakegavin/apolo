@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Resources | Ashland Water Polo{% endblock %}
+
+{% block content %}
+    <h2>Club Resources</h2>
+        {% for file in files %}
+            <div style="margin-left: 2em;">
+                <h4><a href="{{ file.resource.url }}">{{ file.name }}</a></h4>
+                {% if file.author %}
+                    <h6>Uploaded by {{ file.author }} on {{ file.last_modified }}</h6>
+                {% else %}
+                    <h6>Last modified on {{ file.last_modified }}</h6>
+                {% endif %}
+                <p>{{ file.description }}</p>
+            </div>
+        {% endfor %}
+{% endblock %}

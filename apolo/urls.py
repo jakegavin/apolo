@@ -19,7 +19,7 @@ urlpatterns = patterns('',
     url(r'^coaches/', include('roster.urls.coachesurls')),
     url(r'^schedule/', include('schedule.urls')),
     url(r'^photos/', include('photos.urls')),
-    url(r'^resources/', ResourceView.as_view(), name='resources'),
+    url(r'^resources/', include('resources.urls')),
     url(r'^coaching_staff/', CoachView.as_view(), name='coaching_staff'),
     url(r'^alumni/', TemplateView.as_view(template_name="under_construction.html")),
 )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

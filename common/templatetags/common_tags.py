@@ -17,3 +17,18 @@ def active_page(request, view_name):
         return ""
 
 
+@register.simple_tag
+def h_join(inlist):
+    s_out = ''
+    s_out += inlist.pop(0)
+    if inlist:
+        if len(inlist) == 1:
+            s_out += ', and ' + inlist.pop(0)
+        elif len(inlist) > 1:
+            s_out += ', ' + inlist.pop(0)
+        else:
+            pass
+    else:
+        pass
+    return s_out
+

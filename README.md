@@ -19,8 +19,7 @@ The photo app is loosely based on the Portfolio app in [Djago by Example]
     *   Create about link in footer (lightbox popup)
     *   Clean up CSS
     *   Install South for database migrations
-*   Create resources app
-    *   Password protect page
+*   Passowrd protect resources
 *   Create homepage
     *   Links to social media
 *   Schedule App
@@ -30,7 +29,6 @@ The photo app is loosely based on the Portfolio app in [Djago by Example]
         *   Season stats page
 *   Roster App
     *   Fix trailing comma on coaches roster list
-        *   (', ').join(coach)
     *   Clean up coaches template page formatting. 
         *   Use divs instead of tables
 *   Photos App
