@@ -3,19 +3,20 @@
 {% block title %}Coaches | Ashland Water Polo{% endblock %}
 
 {% block content %}
-<h1>Coaches</h1>
-{% for coach in coaches %}
-<table>
-    <tr> 
-        <td><img style="height:auto; width:auto; max-width:180px; max-height:180px;" src="{{ coach.photo.url }}"></img></td>
-        <td>
-        <h3>{{ coach }}</h3>
-        <h4>{{ coach.title }}</h4>
-        <br>
-        <p> {{ coach.bio }}</p>
-        </td>
-    </tr>
-</table>
-<br>
-{% endfor %}
+    <h2>Coaches</h2>
+    <div style="margin-left: 1em;">
+        {% for coach in coaches %}
+            <div>
+                <img style="float: left; margin-right: .7em; height:auto; width:auto; max-width:180px; max-height:180px;" src="{{ coach.photo.url }}" class="img-rounded">
+                <h3>{{ coach }}</h3>
+                <h4>{{ coach.title }}</h4>
+                {% if coach.email %}
+                    <h5><a href="mailto:{{ coach.email }}" target="_blank"><span class="glyphicon glyphicon-envelope"></span> Email</a></h5>
+                {% else %}
+                {% endif %}
+                <p> {{ coach.bio }}</p> 
+                <br>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

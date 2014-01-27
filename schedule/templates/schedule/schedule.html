@@ -3,32 +3,34 @@
 {% block title %}Schedule | Ashland Water Polo{% endblock %}
 
 {% block content %}
-{% for season in seasons %}
-    <h2>{{ season }}</h3>
-    {% for tournament in tournaments %}
-        {% if tournament.season == season %}
-        <div class="panel-group" id="accordion">
-            <div class="panel-default">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.counter }}">
-                        {{ tournament.date_start }} - {{ tournament.date_end }}: {{ tournament.name }} in {{ tournament.location }}      
-                    </a>
-                </h4>
-            </div>
-            <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse">
-                <div class="panel-body">
-                    {% for game in games %}
-                        <ul>
-                        {%if game.tournament == tournament %}
-                                <li> {{ game.time }} - Ashland {{ game.team}} vs {{ game.opponent }}  </li>
-                        {% endif %}                  
-                        </ul>
-                    {% endfor %}
+    <h2>Schedule</h2>
+    <div style="margin-left: 1em;">
+        {% for tournament, games in schedule %}
+            <div class="panel-group" id="accordion{{ forloop.counter }}">
+                <div class="panel panel-default">
+                    <div class="panel-title">
+                        <a href="#collapse{{ forloop.counter }}" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion{{ forloop.counter }}">
+                            <h4>{{ tournament.date_start|date:"M. j" }}{% if tournament.date_start != tournament.date_end %} - {{ tournament.date_end|date:"M. j" }}{% endif %}: {{ tournament.name }} in {{ tournament.location }}</h4>
+                        </a>
+                    </div>
+                    <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <ul>
+                                {% for game in games %}
+                                    {% ifchanged %}<h5>{{ game.date }}</h5>{% endifchanged %}
+                                    <li>{{ game.time }} - Ashland {{ game.team}} vs {{ game.opponent }}</li>
+                                {% empty %}
+                                    <p>Game data hasn't been added yet. Please check back soon.</p>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <br>
-        {% endif %}
-    {% endfor %}
-{% endfor %}
+        {% empty %}
+            Nothing in schedule
+        {% endfor %}
+        <small>Click on a tournament to reveal game information.</small>
+        <br><br>
+    </div>
 {% endblock %}

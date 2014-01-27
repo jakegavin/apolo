@@ -3,36 +3,46 @@
 {% block title %}Roster | Ashland Water Polo{% endblock %}
 
 {% block content %}
-<h1>Rosters</h1>
-{% for team in teams %}
-    <h2>{{ team.name }}</h2>
-    <p><strong>Coaches: 
-    {% for coach in coaches %}
-        {% if team in coach.team.all %}
-            {{ coach }},  
-        {% endif %}
-    {% endfor %}
-    </p></strong>
-    <table border="1" class="roster">
-        <tr>
-            <th>Num</th>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Grad Year</th>
-        </tr>
-        {% for player in players %}
-        {% if player.team == team %}
-        {% if player.active %}
+    <h2>Rosters</h2>
+    <div style="margin-left: 1em;">
+        <h3>{{ bteam }} Team</h3>
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th class="col-xs-1">Number</th>
+                <th class="col-xs-5">Name</th>
+                <th class="col-xs-4">Position</th>
+                <th class="col-xs-2">Grad Year</th>
+            </tr>
+            {% for boy in boys %}
                 <tr>
-                    <td>{{ player.number }}</td>
-                    <td>{{ player }}</td>
-                    <td>{{ player.position }}</td>
-                    <td>{{ player.grad_year }}</td>
-                </tr>            
-        {% endif %}
-        {% endif %}    
-        {% endfor %}
-    <table>
-    <br /><br />
-{% endfor %}
+                    <td class="text-center">{{ boy.number }}</td>
+                    <td>{{ boy }}</td>
+                    <td>{{ boy.position }}</td>
+                    <td>{{ boy.grad_year }}</td>
+                </tr>
+            {% empty %}
+                <h5>No boys found in boys list</h5>
+            {% endfor %}
+        </table>
+
+        <h3>{{ gteam }} Team</h3>
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th class="col-xs-1">Number</th>
+                <th class="col-xs-5">Name</th>
+                <th class="col-xs-4">Position</th>
+                <th class="col-xs-2">Grad Year</th>
+            </tr>
+            {% for girl in girls %}
+                <tr>
+                    <td class="text-center">{{ girl.number }}</td>
+                    <td>{{ girl }}</td>
+                    <td>{{ girl.position }}</td>
+                    <td>{{ girl.grad_year }}</td>
+                </tr>
+            {% empty %}
+                <h5>No girls found in girls list</h5>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}

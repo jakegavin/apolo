@@ -25,6 +25,11 @@ body{
     /* max-width: 1080px; */
 }
 
+h1, h2, h3 {
+margin-top: 2px;
+margin-bottom: 10px;
+}
+
 footer {
     border-top: 1px solid #626262;
     padding-top: 1em;
@@ -35,4 +40,16 @@ footer {
     .container{
         max-width: 1080px;
     }
+}
+
+.panel{
+    background-color:  rgba(30, 30, 30, .75);
+}
+
+.panel-title {
+    margin-left: 0.5em;
+}
+
+.panel-body{
+    padding: 0px;
 }

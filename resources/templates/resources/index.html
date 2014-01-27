@@ -4,15 +4,20 @@
 
 {% block content %}
     <h2>Club Resources</h2>
-        {% for file in files %}
-            <div style="margin-left: 2em;">
-                <h4><a href="{{ file.resource.url }}">{{ file.name }}</a></h4>
+        <div style="margin-left: 1em;">
+            {% for file in files %}
+            
+                <h4><span class="glyphicon glyphicon-save"></span> <a href="{{ file.resource.url }}">{{ file.name }}</a></h4>
                 {% if file.author %}
                     <h6>Uploaded by {{ file.author }} on {{ file.last_modified }}</h6>
                 {% else %}
                     <h6>Last modified on {{ file.last_modified }}</h6>
                 {% endif %}
                 <p>{{ file.description }}</p>
-            </div>
-        {% endfor %}
+                <br>
+            {% empty %}
+                <h4>There are no files here. Please check back later.</h4>
+            {% endfor %}
+        </div>
+        
 {% endblock %}
